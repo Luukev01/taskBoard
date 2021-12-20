@@ -1,11 +1,3 @@
-
-* {
-    box-sizing: border-box;
-}
-div {
-    display: block;
-}
-
 .task-board-container {
     text-align: center;
     width: 100%;
@@ -21,3 +13,35 @@ div {
     background-color: pink;
     color: white;
 }
+
+html {
+  font-size: 1rem;
+}
+
+/* Start of navigation bar css */
+
+.navbar-nav {
+  margin-left: 50%;
+}
+
+h1 {
+  color: #edadc7;
+}
+
+.nav-item {
+  padding: 0 3rem;
+}
+
+.header-border {
+  border-bottom: none;
+  border-bottom: 3px dashed;
+  border-color: #edadc7;
+}
+
+.nav-size {
+  color: #edadc7 !important;
+  font-size: 1.5rem;
+}
+
+/* End of navigation bar css */
+

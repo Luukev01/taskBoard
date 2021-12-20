@@ -1,17 +1,17 @@
 .task-board-container {
-    text-align: center;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
+  text-align: center;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .row {
-    justify-content: center;
+  justify-content: center;
 }
 
 .col-3 {
-    background-color: pink;
-    color: white;
+  background-color: pink;
+  color: white;
 }
 
 html {
@@ -45,3 +45,10 @@ h1 {
 
 /* End of navigation bar css */
 
+.banner {
+  color: white !important;
+  width: 300px !important;
+  background-color: #edadc7 !important;
+  border: 2px solid #edadc7;
+  margin: 40px;
+}

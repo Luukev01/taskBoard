@@ -1,23 +1,29 @@
+/* styling for columns */
 .task-board-container {
   text-align: center;
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
+  margin: auto;
 }
 
 .row {
   justify-content: center;
 }
 
-.col-3 {
-  background-color: pink;
+.col-2 {
+  background-color: #edadc7;
   color: white;
+  min-height: 700px;
+  display: grid;
+  grid-template-rows: 20px repeat(5, 100px);
+  align-content: space-evenly;
+  grid-auto-rows: 100px;
+  border-radius: 8px;
 }
 
 html {
   font-size: 1rem;
 }
-
+/* styling for columns */
 /* Start of navigation bar css */
 
 .navbar-nav {
@@ -52,3 +58,21 @@ h1 {
   border: 2px solid #edadc7;
   margin: 40px;
 }
+
+/* styling for about us*/
+.sectionStyling h2 {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  padding-top: 2rem;
+  text-decoration: underline;
+  color: #edadc7;
+}
+
+.sectionStyling p {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  padding-top: 2rem;
+}
+/* styling for about us*/

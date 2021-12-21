@@ -1,9 +1,4 @@
 /* styling for columns */
-.task-board-container {
-  text-align: center;
-  width: 100%;
-  margin: auto;
-}
 
 .row {
   justify-content: center;
@@ -13,7 +8,7 @@
   background-color: #edadc7;
   color: white;
   min-height: 700px;
-  display: grid;
+  display: inline-block;
   grid-template-rows: 20px repeat(5, 100px);
   align-content: space-evenly;
   grid-auto-rows: 100px;
@@ -79,19 +74,48 @@ h1 {
 
 /* styling for task cards*/
 
-.task-container {
-  position: fixed;
-  justify-self: center;
-  display: block;
-  background-color: rgb(173, 232, 244);
-  border: 1px solid rgb(255, 254, 254);
-  border-radius: 0.25rem;
-  margin-top: 4em;
+.task-board-container {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
 
+.task-container {
+  justify-self: center;
+  background-color: rgb(173, 232, 244);
+  border-right: 1px solid rgb(173, 232, 244);
+  margin-top: 4em;
+}
+
+.card-body {
+  line-height: 10%;
+}
+.card-header {
+  background-color: rgb(173, 232, 244) !important;
+  border: none !important;
+  text-decoration: underline;
+}
+
+.card-footer {
+  background-color: rgb(173, 232, 244) !important;
+  border: none !important;
 }
 
 .card-button {
   border-radius: 0.25rem;
+}
+
+.edit-button {
+  background-color: white;
+  color: #edadc7;
+  border: #edadc7;
+}
+
+.delete-button {
+  background-color: white;
+  color: #edadc7;
+  border: #edadc7;
+  border-width: 2px;
 }
 
 /* Styling for modal */

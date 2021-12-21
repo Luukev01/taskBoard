@@ -130,3 +130,22 @@ h1 {
   border: 1px solid lightgray;
   border-radius: 5%;
 }
+
+#submit-edit {
+  background-color: #edadc7;
+  border: #edadc7;
+}
+
+#close-button {
+  border-radius: 20%;
+  background-color: white;
+  border: none;
+}
+
+.btn {
+  transition-duration: 0.4s;
+}
+.btn:hover {
+  background-color: #f8c6da !important;
+  color: white;
+}

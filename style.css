@@ -21,27 +21,23 @@ html {
 /* styling for columns */
 /* Start of navigation bar css */
 
-.navbar-nav {
-  margin-left: 50%;
-}
-
 h1 {
-  color: #edadc7;
+  font-size: 2rem !important;
 }
 
-.nav-item {
-  padding: 0 3rem;
+.text-pink {
+  color: #edadc7 !important;
+}
+
+.navbar-cssLink {
+  font-size: 1.5rem !important;
+  padding: 0px 25px !important;
 }
 
 .header-border {
   border-bottom: none;
-  border-bottom: 3px dashed;
+  border-bottom: 2px dashed;
   border-color: #edadc7;
-}
-
-.nav-size {
-  color: #edadc7 !important;
-  font-size: 1.5rem;
 }
 
 /* End of navigation bar css */

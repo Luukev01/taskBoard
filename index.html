@@ -15,7 +15,6 @@
   </head>
 
   <!-- Start of the body -->
-
   <body>
       <!-- Start of Navigation bar-->
       <section>
@@ -49,30 +48,32 @@
         </nav>
       </section>
       <!-- End of Navigation bar-->
-    <!-- End of Header-->
-    <!-- Title -->
+      <!-- Title -->
 
-    <section class="sectionStyling">
-      <h2 id="titleTasks">Tasks</h2>
-    </section>
+      <section class="sectionStyling">
+        <h2 id="titleTasks">Tasks</h2>
+      </section>
 
-    <!-- End of Title  -->
+     <!-- End of Title  -->
 
     <!-- Start of Button-->
-    <div class="d-flex justify-content-center align-items-center">
-      <button
-        type="button"
-        class="btn banner btn-lg btn-block"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Add Task
-      </button>
-    </div>
+    <section>
+      <div class="d-flex justify-content-center align-items-center">
+        <button
+          type="button"
+          class="btn banner btn-lg btn-block"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Add Task
+        </button>
+      </div>
+    </section>
     <!-- End of button -->
 
     <!-- Modal -->
-    <div
+    <section>
+      <div
       class="modal fade"
       id="exampleModal"
       tabindex="-1"
@@ -143,24 +144,24 @@
               <br />
               <br />
             </form>
-          </div>
+           </div>
 
-          <div class="modal-footer">
-            <button
+            <div class="modal-footer">
+             <button
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >
               Cancel
-            </button>
+             </button>
 
-            <button type="submit" class="btn btn-primary" id="submit-edit">Submit</button>
+              <button type="submit" class="btn btn-primary" id="submit-edit">Submit</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!--  Columns -->
+    </section>
+  <!--  Columns -->
 
     <div class="task-board-container">
       <div class="row">

@@ -11,7 +11,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <script src="index.js"></script>
+  
     <title>Task Board</title>
   </head>
 
@@ -103,11 +103,12 @@
             <form>
               <div class="row">
                 <div class="col">
-                  <label for="taskTitle">Task Title: </label>
+                  <label for="taskTitle" >Task Title: </label>
                   <input
                     type="text"
                     class="form-control"
-                    aria-label="taskTitle"
+                    id="title"
+
                   />
                   <div class="valid-feedback"></div>
                   <div class="invalid-feedback">Please enter at least 5 characters.</div>
@@ -117,6 +118,7 @@
                   <select
                     class="form-select"
                     aria-label="Default select example"
+                    id="taskStatus"
                   >
                     <option selected>Choose Status</option>
                     <option value="1">To Do</option>
@@ -140,16 +142,18 @@
                 <div class="col">
                   <label for="assignTo">Assigned to: </label>
                   <input
+
                     type="text"
                     class="form-control"
                     aria-label="assignTo"
+                    id="assignTo"
                   />
                   <div class="valid-feedback"></div>
                   <div class="invalid-feedback">Please enter more than 5 characters</div>
                 </div>
                 <div class="col">
                   <label for="taskStatus">Due date: </label>
-                  <input id="date" type="date" />
+                  <input id="dueDate" type="date" />
                   <div class="valid-feedback"></div>
                   <div class="invalid-feedback">Please select a date.</div>
                 </div>
@@ -400,7 +404,7 @@
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
-<script src="./js/taskManager.js"></script>
-<script type="module" src="./js/index.js"></script>
+<script src="./js/taskManager.js" defer></script>
+<script type="module" src="./js/index.js" defer></script>
   </body>
 </html>

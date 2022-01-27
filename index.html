@@ -11,6 +11,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <script src="index.js"></script>
     <title>Task Board</title>
   </head>
 
@@ -82,6 +83,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog" role="document">
+        <form id="new-task-form"></form>
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Add/Edit Task</h5>
@@ -107,6 +109,8 @@
                     class="form-control"
                     aria-label="taskTitle"
                   />
+                  <div class="valid-feedback"></div>
+                  <div class="invalid-feedback">Please enter at least 5 characters.</div>
                 </div>
                 <div class="col">
                   <label for="taskStatus">Task Status: </label>
@@ -121,12 +125,17 @@
                     <option value="4">Done</option>
                   </select>
                   <br />
+                  <div class="valid-feedback"></div>
+                  <div class="invalid-feedback">Please choose a status.</div>
                 </div>
               </div>
               <label for="textDes">Text Description: </label>
 
               <textarea id="textDes" name="textDes" rows="4" cols="53">
               </textarea>
+              <div class="valid-feedback"></div>
+              <div class="invalid-feedback">Please enter between 5 and 50 characters.</div>
+
               <div class="row">
                 <div class="col">
                   <label for="assignTo">Assigned to: </label>
@@ -135,10 +144,14 @@
                     class="form-control"
                     aria-label="assignTo"
                   />
+                  <div class="valid-feedback"></div>
+                  <div class="invalid-feedback">Please enter more than 5 characters</div>
                 </div>
                 <div class="col">
                   <label for="taskStatus">Due date: </label>
                   <input id="date" type="date" />
+                  <div class="valid-feedback"></div>
+                  <div class="invalid-feedback">Please select a date.</div>
                 </div>
               </div>
               <br />

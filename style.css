@@ -21,27 +21,23 @@ html {
 /* styling for columns */
 /* Start of navigation bar css */
 
-.navbar-nav {
-  margin-left: 50%;
-}
-
 h1 {
-  color: #edadc7;
+  font-size: 2rem !important;
 }
 
-.nav-item {
-  padding: 0 3rem;
+.text-pink {
+  color: #edadc7 !important;
+}
+
+.navbar-cssLink {
+  font-size: 1.5rem !important;
+  padding: 0px 25px !important;
 }
 
 .header-border {
   border-bottom: none;
-  border-bottom: 3px dashed;
+  border-bottom: 2px dashed;
   border-color: #edadc7;
-}
-
-.nav-size {
-  color: #edadc7 !important;
-  font-size: 1.5rem;
 }
 
 /* End of navigation bar css */
@@ -129,4 +125,23 @@ h1 {
   padding-left: 5%;
   border: 1px solid lightgray;
   border-radius: 5%;
+}
+
+#submit-edit {
+  background-color: #edadc7;
+  border: #edadc7;
+}
+
+#close-button {
+  border-radius: 20%;
+  background-color: white;
+  border: none;
+}
+
+.btn {
+  transition-duration: 0.4s;
+}
+.btn:hover {
+  background-color: #f8c6da !important;
+  color: white;
 }

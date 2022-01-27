@@ -1,5 +1,5 @@
 const myTask = new TaskManager();
-const submitBtn = document.querySelector("#submitBtn");
+const submitBtn = document.querySelector("#submit-edit");
 
 // console.log(myTask.task);
 submitBtn.addEventListener("click", () => {

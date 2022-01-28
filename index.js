@@ -1,4 +1,3 @@
-
 // Task 4: Task Form Inputs Validation
 
 const form = document.querySelector("#new-task-form");
@@ -97,4 +96,7 @@ if (month < 10) {
 }
 
 minDate = year + "-" + month + "-" + day;
+
+document.querySelector("#dueDate").setAttribute("min", minDate);
 console.log(minDate);
+

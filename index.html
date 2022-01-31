@@ -11,352 +11,308 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <script src="index.js" defer></script>
+    <script src="./index.js" defer></script>
     <title>Task Board</title>
   </head>
 
-  <!-- Start of the body -->
+<!-- Start of the body -->
   <body>
-      <!-- Start of Navigation bar-->
-      <section>
-        <nav class="navbar navbar-expand-sm navbar-light header-border">
-          <div class="container">
-            <a class="navbar-brand text-pink" href="#"><h1>Task Board</h1></a>
-            <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class=" navbar-nav ms-auto">
-                <li class="nav-item">
-                  <a class="nav-link active text-pink navbar-cssLink" aria-current="page" href="#titleTasks"
-                    >Tasks</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-pink navbar-cssLink" href="#titleAboutUs">About Us</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </section>
-      <!-- End of Navigation bar-->
-      <!-- Title -->
-
-      <section class="sectionStyling">
-        <h2 id="titleTasks">Tasks</h2>
-      </section>
-
-     <!-- End of Title  -->
-
-    <!-- Start of Button-->
-    <section>
-      <div class="d-flex justify-content-center align-items-center">
-        <button
-          type="button"
-          class="btn banner btn-lg btn-block"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
-          Add Task
+  <!-- Start of Navigation bar-->
+   <section>
+     <nav class="navbar navbar-expand-sm navbar-light header-border">
+       <div class="container">
+         <a class="navbar-brand text-pink" href="#"><h1>Task Board</h1></a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class=" navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active text-pink navbar-cssLink" aria-current="page" href="#titleTasks"
+                >Tasks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-pink navbar-cssLink" href="#titleAboutUs">About Us</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </section>
-    <!-- End of button -->
+    </nav>
+  </section>
+  <!-- End of Navigation bar-->
+  <!-- Title -->
 
-    <!-- Modal -->
-    <section>
-      <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <form id="new-task-form"></form>
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add/Edit Task</h5>
+  <section class="sectionStyling">
+    <h2 id="titleTasks">Tasks</h2>
+  </section>
 
-            <button
-              type="button"
-              class="close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-              id="close-button"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+ <!-- End of Title  -->
 
-          <div class="modal-body">
-            <form>
-              <div class="row">
-                <div class="col">
-                  <label for="taskTitle">Task Title: </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    aria-label="taskTitle"
-                  />
-                  <div class="valid-feedback"></div>
-                  <div class="invalid-feedback">Please enter at least 5 characters.</div>
-                </div>
-                <div class="col">
-                  <label for="taskStatus">Task Status: </label>
-                  <select
-                    class="form-select"
-                    aria-label="Default select example"
-                  >
-                    <option selected>Choose Status</option>
-                    <option value="1">To Do</option>
-                    <option value="2">In Progress</option>
-                    <option value="3">Review</option>
-                    <option value="4">Done</option>
-                  </select>
-                  <br />
-                  <div class="valid-feedback"></div>
-                  <div class="invalid-feedback">Please choose a status.</div>
-                </div>
+<!-- Start of Button-->
+<section>
+  <div class="d-flex justify-content-center align-items-center">
+    <button type="button" class="btn banner btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Task
+    </button>
+  </div>
+</section>
+<!-- End of button -->
+
+<!-- Modal -->
+<section>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Add/Edit Task</h5>
+         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" id="close-button">
+          <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+     
+      <form id= "new-task-form" class="needs-validation" novalidate>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <label for="taskTitle">Task Title: </label>
+              <input type="text" id="taskTitle"required class="form-control" aria-label="taskTitle"/>
+              <div class="valid-feedback">Thanks!</div>
+              <div class="invalid-feedback">Please enter at least 5 characters.</div>
+                <br>
+            </div>
+            <div class="col">
+              <label for="taskStatus">Task Status: </label>
+                <select class="form-control" id="taskStatus" required aria-label="Default select example">
+                  <option selected></option>
+                  <option value="1">To Do</option>
+                  <option value="2">In Progress</option>
+                  <option value="3">Review</option>
+                  <option value="4">Done</option>
+                </select>
+                 <div class="valid-feedback">Thanks!</div>
+                 <div class="invalid-feedback">Please choose a status.</div>
+                 <br>
               </div>
+            </div>
+            <div class="form-comtrol">
               <label for="textDes">Text Description: </label>
-
-              <textarea id="textDes" name="textDes" rows="4" cols="53">
-              </textarea>
-              <div class="valid-feedback"></div>
-              <div class="invalid-feedback">Please enter between 5 and 50 characters.</div>
-
-              <div class="row">
-                <div class="col">
-                  <label for="assignTo">Assigned to: </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    aria-label="assignTo"
-                  />
-                  <div class="valid-feedback"></div>
-                  <div class="invalid-feedback">Please enter more than 5 characters</div>
-                </div>
-                <div class="col">
-                  <label for="dueDate">Due date: </label>
-                  <input id="dueDate" type="date" min="">
-                  <div class="valid-feedback"></div>
-                  <div class="invalid-feedback">Please select a date.</div>
-                </div>
-              </div>
-              <br />
-              <br />
-            </form>
-           </div>
-
-            <div class="modal-footer">
-             <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-             </button>
-
-              <button type="submit" class="btn btn-primary" id="submit-edit">Submit</button>
+              <textarea id="textDes"required name="textDes" rows="4" cols="53"></textarea>
+              <div class="valid-feedback">Thanks!</div>
+              <div class="invalid-feedback">Please enter more than 5 characters.</div>
+                <br>
             </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="assignTo">Assigned to: </label>
+              <input type="text" class="form-control" id="assignTo"required aria-label="assignTo"/>
+              <div class="valid-feedback">Thanks!</div>
+              <div class="invalid-feedback">Please enter more than 5 characters</div>
+            </div>
+            <div class="col">
+              <label for="dueDate">Due date: </label>
+              <input id="dueDate"required class="form-control" type="date" min=""/>
+              <div class="valid-feedback">Thanks!</div>
+              <div class="invalid-feedback">Please select a date.</div>
+            </div>
+          </div>
+            <br>
+            <br>
+       </div>
+    
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submit-edit">Submit</button>
+        </div>
+       </form>
+       </div>
+     </div>
+   </div>
+  </div>
+</section>
+<!--  Columns -->
+
+<div class="task-board-container">
+  <div class="row">
+    <div class="col-2" id="to-do">
+      <!--  title column-->
+      <!-- Start of To Do column-->
+      <div class="row">
+        <div class="title-column">
+          <p>To do</p>
+        </div>
+      </div>
+      <!-- Start of task 1 container -->
+      <div class="row">
+        <div class="task-container" data-task-id="1">
+          <div class="card-header">
+            <h5>Laundry</h5>
+          </div>
+          <div class="card-body">
+            <p class="description">Description</p>
+            <p class="assigned-text">
+              <small class>Assigned to: Name</small>
+            </p>
+            <p class="assigned-text">
+              <small class> Due: Date</small>
+            </p>
+          </div>
+          <div class="card-footer">
+            <button class="card-button edit-button" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Edit</button>
+            <button class="card-button delete-button">Delete</button>
           </div>
         </div>
       </div>
-    </section>
-  <!--  Columns -->
-
-    <div class="task-board-container">
+      <br />
+      <!-- End of task 1 container -->
+      <!-- Start of task 2 container -->
       <div class="row">
-        <div class="col-2" id="to-do">
-          <!--  title column-->
-          <!-- Start of To Do column-->
-          <div class="row">
-            <div class="title-column">
-              <p>To do</p>
-            </div>
+        <div class="task-container" data-task-id="2">
+          <div class="card-header">
+            <h5>Laundry</h5>
           </div>
-          <!-- Start of task 1 container -->
-          <div class="row">
-            <div class="task-container" data-task-id="1">
-              <div class="card-header">
-                <h5>Laundry</h5>
-              </div>
-              <div class="card-body">
-                <p class="description">Description</p>
-                <p class="assigned-text">
-                  <small class>Assigned to: Name</small>
-                </p>
-                <p class="assigned-text">
-                  <small class> Due: Date</small>
-                </p>
-              </div>
-              <div class="card-footer">
-                <button class="card-button edit-button" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Edit</button>
-                <button class="card-button delete-button">Delete</button>
-              </div>
-            </div>
+          <div class="card-body">
+            <p class="description">Description</p>
+            <p class="assigned-text">
+              <small class>Assigned to: Name</small>
+            </p>
+            <p class="assigned-text">
+              <small class> Due: Date</small>
+            </p>
           </div>
-          <br />
-          <!-- End of task 1 container -->
-          <!-- Start of task 2 container -->
-          <div class="row">
-            <div class="task-container" data-task-id="2">
-              <div class="card-header">
-                <h5>Laundry</h5>
-              </div>
-              <div class="card-body">
-                <p class="description">Description</p>
-                <p class="assigned-text">
-                  <small class>Assigned to: Name</small>
-                </p>
-                <p class="assigned-text">
-                  <small class> Due: Date</small>
-                </p>
-              </div>
-              <div class="card-footer">
-                <button class="card-button edit-button" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Edit</button>
-                <button class="card-button delete-button">Delete</button>
-              </div>
-            </div>
-          </div>
-          <br />
-          <!-- End of task 2 container -->
-          <!-- Start of task 3 container -->
-          <div class="row">
-            <div class="task-container" data-task-id="3">
-              <div class="card-header">
-                <h5>Laundry</h5>
-              </div>
-              <div class="card-body">
-                <p class="description">Description</p>
-                <p class="assigned-text">
-                  <small class>Assigned to: Name</small>
-                </p>
-                <p class="assigned-text">
-                  <small class> Due: Date</small>
-                </p>
-              </div>
-              <div class="card-footer">
-                <button class="card-button edit-button" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Edit</button>
-                <button class="card-button delete-button">Delete</button>
-              </div>
-            </div>
-          </div>
-          <!-- End of task 3 container -->
-        </div>
-        <!-- End of task container -->
-        <!-- End of To Do column-->
-        <!-- Start of in Progress column-->
-        <div class="col-2 offset-1" id="progress">
-          <div class="row">
-            <div class="title-column">
-              <p>In Progress</p>
-            </div>
-          </div>
-          <!-- Start of task 1 container -->
-          <div class="row">
-            <div class="task-container" data-task-id="3">
-              <div class="card-header">
-                <h5>Laundry</h5>
-              </div>
-              <div class="card-body">
-                <p class="description">Description</p>
-                <p class="assigned-text">
-                  <small class>Assigned to: Name</small>
-                </p>
-                <p class="assigned-text">
-                  <small class> Due: Date</small>
-                </p>
-              </div>
-              <div class="card-footer">
-                <button class="card-button edit-button" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Edit</button>
-                <button class="card-button delete-button">Delete</button>
-              </div>
-            </div>
-          </div>
-          <br />
-          <!-- End of task 1 container -->
-          <!-- Start of task 2 container -->
-          <div class="row">
-            <div class="task-container" data-task-id="3">
-              <div class="card-header">
-                <h5>Laundry</h5>
-              </div>
-              <div class="card-body">
-                <p class="description">Description</p>
-                <p class="assigned-text">
-                  <small class>Assigned to: Name</small>
-                </p>
-                <p class="assigned-text">
-                  <small class> Due: Date</small>
-                </p>
-              </div>
-              <div class="card-footer">
-                <button class="card-button edit-button" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Edit</button>
-                <button class="card-button delete-button">Delete</button>
-              </div>
-            </div>
-          </div>
-          <br />
-          <!-- End of task 2 container -->
-        </div>
-        <!-- Start of in In Progress column-->
-        <!-- Start of review column-->
-        <div class="col-2 offset-1" id="review">
-          <div class="row">
-            <div class="title-column">
-              <p>Review</p>
-            </div>
+          <div class="card-footer">
+            <button class="card-button edit-button" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Edit</button>
+            <button class="card-button delete-button">Delete</button>
           </div>
         </div>
-          <!-- Start of task 1 container -->
-
-          <!-- End of task 1 container -->
-          <!-- Start of task 2 container -->
-
-          <!-- End of task 2 container -->
-          <!-- End of review column-->
-          <!-- Start of Done column-->
-          <div class="col-2 offset-1" id="done">
-            <div class="row">
-              <div class="title-column">
-                <p>Review</p>
-              </div>
-            </div>
+      </div>
+      <br />
+      <!-- End of task 2 container -->
+      <!-- Start of task 3 container -->
+      <div class="row">
+        <div class="task-container" data-task-id="3">
+          <div class="card-header">
+            <h5>Laundry</h5>
+          </div>
+          <div class="card-body">
+            <p class="description">Description</p>
+            <p class="assigned-text">
+              <small class>Assigned to: Name</small>
+            </p>
+            <p class="assigned-text">
+              <small class> Due: Date</small>
+            </p>
+          </div>
+          <div class="card-footer">
+            <button class="card-button edit-button" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Edit</button>
+            <button class="card-button delete-button">Delete</button>
+          </div>
         </div>
-          <!-- Start of task 1 container -->
-
-          <!-- End of task 1 container -->
-          <!-- Start of task 2 container -->
-
-          <!-- End of task 2 container -->
-          <!-- End of Done column-->
+      </div>
+      <!-- End of task 3 container -->
+    </div>
+    <!-- End of task container -->
+    <!-- End of To Do column-->
+    <!-- Start of in Progress column-->
+    <div class="col-2 offset-1" id="progress">
+      <div class="row">
+        <div class="title-column">
+          <p>In Progress</p>
+        </div>
+      </div>
+      <!-- Start of task 1 container -->
+      <div class="row">
+        <div class="task-container" data-task-id="3">
+          <div class="card-header">
+            <h5>Laundry</h5>
+          </div>
+          <div class="card-body">
+            <p class="description">Description</p>
+            <p class="assigned-text">
+              <small class>Assigned to: Name</small>
+            </p>
+            <p class="assigned-text">
+              <small class> Due: Date</small>
+            </p>
+          </div>
+          <div class="card-footer">
+            <button class="card-button edit-button" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Edit</button>
+            <button class="card-button delete-button">Delete</button>
+          </div>
+        </div>
+      </div>
+      <br />
+      <!-- End of task 1 container -->
+      <!-- Start of task 2 container -->
+      <div class="row">
+        <div class="task-container" data-task-id="3">
+          <div class="card-header">
+            <h5>Laundry</h5>
+          </div>
+          <div class="card-body">
+            <p class="description">Description</p>
+            <p class="assigned-text">
+              <small class>Assigned to: Name</small>
+            </p>
+            <p class="assigned-text">
+              <small class> Due: Date</small>
+            </p>
+          </div>
+          <div class="card-footer">
+            <button class="card-button edit-button" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Edit</button>
+            <button class="card-button delete-button">Delete</button>
+          </div>
+        </div>
+      </div>
+      <br />
+      <!-- End of task 2 container -->
+    </div>
+    <!-- Start of in In Progress column-->
+    <!-- Start of review column-->
+    <div class="col-2 offset-1" id="review">
+      <div class="row">
+        <div class="title-column">
+          <p>Review</p>
         </div>
       </div>
     </div>
+      <!-- Start of task 1 container -->
 
-    <!-- Start of about us -->
+      <!-- End of task 1 container -->
+      <!-- Start of task 2 container -->
 
-    <section class="sectionStyling" id="aboutUsPosition">
-      <h2 id="titleAboutUs">About Us</h2>
-      <p>The page is created by Yujin, Jane and Kevin</p>
-    </section>
+      <!-- End of task 2 container -->
+      <!-- End of review column-->
+      <!-- Start of Done column-->
+      <div class="col-2 offset-1" id="done">
+        <div class="row">
+          <div class="title-column">
+            <p>Review</p>
+          </div>
+        </div>
+    </div>
+      <!-- Start of task 1 container -->
+
+      <!-- End of task 1 container -->
+      <!-- Start of task 2 container -->
+
+      <!-- End of task 2 container -->
+      <!-- End of Done column-->
+    </div>
+  </div>
+</div>
+
+<!-- Start of about us -->
+
+<section class="sectionStyling" id="aboutUsPosition">
+  <h2 id="titleAboutUs">About Us</h2>
+  <p>The page is created by Yujin, Jane and Kevin</p>
+</section>
+
 
     <!-- End of about is -->
 

@@ -1,102 +1,94 @@
 // Task 4: Task Form Inputs Validation
 
-const form = document.querySelector("#new-task-form");
+const newTaskForm = document.querySelector("#new-task-form");
 
-
-const taskName = document.querySelector("#textTitle");
-const description = document.querySelector("#textDes");
-const assignedTo = document.querySelector("#assignTo");
-const dueDate = document.querySelector("#dueDate");
-const taskStatus = document.querySelector("#taskStatus");
-const submit = document.querySelector("#submit");
-
-// Function to valid all input of the add Task form
-
-function validFormFieldInput(event) {
+newTaskForm.addEventListener("submit", (event) => {
+  const newTaskName = document.querySelector("#taskTitle");
+  const newDescription = document.querySelector("#textDes");
+  const assignedTo = document.querySelector("#assignTo");
+  const dueDate = document.querySelector("#dueDate");
+  const status = document.querySelector("#taskStatus");
   let validationFail = 0;
 
   event.preventDefault();
   event.stopPropagation();
-    console.log("Task Name :" + taskName.value.length);
-    console.log("Task Description :" + description.value.length);
-    console.log("Task Assigned To :" + assignedTo.value.length);
-    console.log("Task Due Date :" + dueDate.value);
-    console.log("Task Status:" + taskStatus.value);
+  console.log("Task Name :" + newTaskName.value.length);
+  console.log("Task Description :" + newDescription.value.length);
+  console.log("Task Assigned To :" + assignedTo.value.length);
+  console.log("Task Due Date :" + dueDate.value);
+  console.log("Task Status:" + status.value);
 
-
-// Checking if the Task Name input value is more than 5 characters.
-  if (taskName.value.trim().length < 5) {
-     taskName.classList.remove('is-valid');
-     taskName.classList.add('is-invalid');
+  // Form validation for Task Name Field min length 5
+  if (newTaskName.value.length > 5) {
+    newTaskName.classList.add("is-valid");
+    newTaskName.classList.remove("is-invalid");
   } else {
-     taskName.classList.add('is-valid');
-     taskName.classList.remove('is-invalid');
-     validationFail++;
+    newTaskName.classList.add("is-invalid");
+    newTaskName.classList.remove("is-valid");
+    validationFail++;
   }
 
-// Checking if the Task Description input value is more than 5 characters.
-  if (description.value.length < 5 || description.value.length > 50) {
-     description.classList.remove('is-valid');
-     description.classList.add('is-invalid');
+  // Form validation for Task Description Field min length 5
+  if (newDescription.value.length > 5) {
+    newDescription.classList.add("is-valid");
+    newDescription.classList.remove("is-invalid");
   } else {
-     description.classList.add('is-valid');
-     description.classList.remove('is-invalid');
-     validationFail++;
+    newDescription.classList.add("is-invalid");
+    newDescription.classList.remove("is-valid");
+    validationFail++;
   }
 
-// Checking if the Assigned To value is more than 5 characters.
-  if (assignedTo.value.length < 5) {
-     assignedTo.classList.remove('is-valid');
-     assignedTo.classList.add('is-invalid');
+  // Form validation for Task Assigned Field min length 5
+  if (assignedTo.value.length > 5) {
+    assignedTo.classList.add("is-valid");
+    assignedTo.classList.remove("is-invalid");
   } else {
-     assignedTo.classList.add('is-valid');
-     assignedTo.classList.remove('is-invalid');
-     validationFail++;
-  }
-
-// Checking if the Task Due Date input value is not empty.
-  if (dueDate.value === "") {
-     dueDate.classList.remove('is-valid');
-     dueDate.classList.add('is-invalid');
+    assignedTo.classList.add("is-invalid");
+    assignedTo.classList.remove("is-valid");
+    validationFail++;
+  }  
+  // Form validation for Due Date Field not empty
+ 
+  if (dueDate.value) {
+    dueDate.classList.add("is-valid");
+    dueDate.classList.remove("is-invalid");
   } else {
-     dueDate.classList.add('is-valid');
-     dueDate.classList.remove('is-invalid');
-     validationFail++;
+    dueDate.classList.add("is-invalid");
+    dueDate.classList.remove("is-valid");
+    validationFail++;
   }
-
-// Checking if the Task Status input value is not empty.
-  if (taskStatus === ""){
-     taskStatus.classList.remove('is-valid');
-     taskStatus.classList.add('is-invalid');}
-  else {
-     taskStatus.classList.add('is-valid');
-     taskStatus.classList.remove('is-invalid');
-     validationFail++;
+  // Form validation for Task Status Field not empty
+  if (status.value) {
+    status.classList.add("is-valid");
+    status.classList.remove("is-invalid");
+  } else {
+    status.classList.add("is-invalid");
+    status.classList.remove("is-valid");
+    validationFail++;
   }
-
 
   if (validationFail > 0) {
     validationFail = 0;
-}
+    return;
+  }
+});
 
-}; // End of validFormFieldInput function
 
-// Checking the date input only allows present and future dates
+// The date input only allows present and future dates
 let dateTime = new Date();
 let day = dateTime.getDate();
 let month = dateTime.getMonth() + 1;
 let year = dateTime.getUTCFullYear();
 
-if (day < 10){
-    day = "0" + day;
+if (day < 10) {
+  day = "0" + day;
 }
 
 if (month < 10) {
-    month = "0" + month;
+  month = "0" + month;
 }
 
 minDate = year + "-" + month + "-" + day;
 
 document.querySelector("#dueDate").setAttribute("min", minDate);
 console.log(minDate);
-

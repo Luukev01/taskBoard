@@ -50,6 +50,19 @@ h1 {
   margin: 40px;
 }
 
+/* Styling for date */
+#date {
+  display: flex !important;
+  justify-content: center;
+  font-size: 1.5rem;
+  width: 100%;
+  margin: 0 auto !important;
+  padding-top: 2rem !important;
+  padding-right: 6rem;
+  color: #edadc7;
+  border: none !important;
+}
+
 /* styling for about us*/
 .sectionStyling h2 {
   text-align: center;

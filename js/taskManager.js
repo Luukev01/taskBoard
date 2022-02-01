@@ -21,10 +21,10 @@ let createTaskHtml = (name, description, assignedTo, dueDate) => {
             <button class="card-button delete-button">Delete</button>
           </div>
         </div>
-  `
+  `;
 
-  return templateHtml
-}
+  return templateHtml;
+};
 
 /* Test */
 
@@ -34,7 +34,7 @@ console.log(taskHtml); */
 /* Task Manager Class */
 class TaskManager {
   constructor(currentId = 0) {
-    this.task = [];
+    this.taskArr = [];
     this.currentId = currentId;
   }
   addTask(name, description, assignedTo, dueDate, status) {
@@ -47,33 +47,31 @@ class TaskManager {
       dueDate: dueDate,
       status: status,
     };
-    this.task.push(task1);
+    this.taskArr.push(task1);
   }
+  render = () => {
+    let tasksHtmlList = [];
 
+    for (let i = 0; i < this.taskArr.length; i++) {
+      let task = this.taskArr[i];
+      const date = new Date(task.dueDate);
+      const formattedDate = `${date.getDate()}/${
+        date.getMonth() + 1
+      }/${date.getFullYear()}`;
+      const taskHtml = createTaskHtml(
+        task.name,
+        task.description,
+        task.assignedTo,
+        formattedDate
+      );
+
+      tasksHtmlList.push(taskHtml);
+    }
+    const tasksHtml = tasksHtmlList.join("\n");
+
+    const tasksList = document.querySelector("#task-list");
+    tasksList.innerHTML = tasksHtml;
+  };
 }
 
 /* creating the render method */
-
-
-render = () => {
-  let tasksHtmlList = [];
-
-  for (let i=0; i<this.tasks.length; i++) {
-    let task = this.tasks[i];
-    const date = new Date(task.dueDate)
-    const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${dateObject.getFullYear()}`
-    const taskHtml = createTaskHtml(
-      task.name,
-      task.description,
-      task.assignedTo,
-      formattedDate);
-
-      tasksHtmlList.push(taskHtml);
-  }
-  const tasksHtml = tasksHtmlList.join("\n");
-
-  const tasksList = document.querySelector("#task-list");
-    tasksList.innerHTML = tasksHtml;
-
-};
-

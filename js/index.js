@@ -1,13 +1,12 @@
-const myTask = new TaskManager();
+const taskManager = new TaskManager();
 
 const submitBtn = document.querySelector("#submit-edit");
 
 // console.log(myTask.task);
-submitBtn.addEventListener("click", () => {
-  myTask.addTask("yujin", "description", " assignedTo", "dueDate", "in review");
-  console.log(myTask.task);
-});
-
+// submitBtn.addEventListener("click", () => {
+//   myTask.addTask("yujin", "description", " assignedTo", "dueDate", "in review");
+//   console.log(myTask.task);
+// });
 
 // Task 4: Task Form Inputs Validation
 
@@ -23,11 +22,6 @@ newTaskForm.addEventListener("submit", (event) => {
 
   event.preventDefault();
   event.stopPropagation();
-  console.log("Task Name :" + newTaskName.value.length);
-  console.log("Task Description :" + newDescription.value.length);
-  console.log("Task Assigned To :" + assignedTo.value.length);
-  console.log("Task Due Date :" + dueDate.value);
-  console.log("Task Status:" + status.value);
 
   // Form validation for Task Name Field min length 5
   if (newTaskName.value.length > 5) {
@@ -57,9 +51,9 @@ newTaskForm.addEventListener("submit", (event) => {
     assignedTo.classList.add("is-invalid");
     assignedTo.classList.remove("is-valid");
     validationFail++;
-  }  
+  }
   // Form validation for Due Date Field not empty
- 
+
   if (dueDate.value) {
     dueDate.classList.add("is-valid");
     dueDate.classList.remove("is-invalid");
@@ -79,11 +73,18 @@ newTaskForm.addEventListener("submit", (event) => {
   }
 
   if (validationFail > 0) {
-    validationFail = 0;
     return;
+  } else {
+    taskManager.addTask(
+      newTaskName.value,
+      newDescription.value,
+      assignedTo.value,
+      dueDate.value,
+      status.value
+    );
+    taskManager.render();
   }
 });
-
 
 // The date input only allows present and future dates
 let dateTime = new Date();
@@ -99,7 +100,7 @@ if (month < 10) {
   month = "0" + month;
 }
 
-minDate = year + "-" + month + "-" + day;
+const minDate = year + "-" + month + "-" + day;
 
 document.querySelector("#dueDate").setAttribute("min", minDate);
 console.log(minDate);

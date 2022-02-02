@@ -92,3 +92,4 @@ minDate = year + "-" + month + "-" + day;
 
 document.querySelector("#dueDate").setAttribute("min", minDate);
 console.log(minDate);
+

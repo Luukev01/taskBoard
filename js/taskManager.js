@@ -2,6 +2,7 @@
 
 let createTaskHtml = (name, description, assignedTo, dueDate) => {
   templateHtml = `
+  <div class="row">
     <div class="task-container" data-task-id="1">
           <div class="card-header">
             <h5>${name}</h5>
@@ -16,11 +17,13 @@ let createTaskHtml = (name, description, assignedTo, dueDate) => {
             </p>
           </div>
           <div class="card-footer">
-            <button class="card-button edit-button" data-bs-toggle="modal"
+            <button type="button" class="card-button edit-button" data-bs-toggle="modal"
             data-bs-target="#exampleModal">Edit</button>
-            <button class="card-button delete-button">Delete</button>
+            <button type="button" class="card-button delete-button">Delete</button>
           </div>
         </div>
+      </div>
+    <br/>
   `;
 
   return templateHtml;
@@ -74,35 +77,6 @@ class TaskManager {
 
   /* creating the render method */
 
-  /* task 10 */
-
-  deleteTask = (taskId) => {
-    let newTasks = [];
-
-    for (let i = 0; i < this.tasks.length; i++) {
-      const task = this.tasks[i];
-      if (task.id !== taskId) {
-        newTasks.push(task);
-      }
-    }
-    this.tasks = newTasks
-  }
-
-  /* move to index after step 8 is done */
-
-  /* 
-  if (event.target.classList.contains("delete-button")) {
-      const parentTask =
-        event.target.parentElement.parentElement.parentElement.parentElement;
-        const taskId = Number(parentTask.dataset.taskId);
-  
-        taskManager.deleteTask(taskId);
-  
-        taskManager.save();
-  
-        taskManager.render();
-    }
-  });*/
 
   // Task 9: Persisting Tasks to LocalStorage 
 
@@ -127,4 +101,18 @@ class TaskManager {
     }
   }
 
+}
+
+ /* task 10 */
+
+ deleteTask = (taskId) => {
+  let newTasks = [];
+
+  for (let i = 0; i < this.taskArr.length; i++) {
+    const task = this.taskArr[i];
+    if (task.id !== taskId) {
+      newTasks.push(task);
+    }
+  }
+  this.taskArr = newTasks;
 }

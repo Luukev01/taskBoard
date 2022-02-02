@@ -1,5 +1,8 @@
 const taskManager = new TaskManager();
 
+taskManager.load(); 
+taskManager.render(); 
+
 const submitBtn = document.querySelector("#submit-edit");
 
 // console.log(myTask.task);
@@ -82,6 +85,7 @@ newTaskForm.addEventListener("submit", (event) => {
       dueDate.value,
       status.value
     );
+    taskManager.load();
     taskManager.render();
   }
 });

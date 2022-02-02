@@ -72,6 +72,45 @@ class TaskManager {
     const tasksList = document.querySelector("#task-list");
     tasksList.innerHTML = tasksHtml;
   };
-}
 
 /* creating the render method */
+
+/* task 10 */ 
+
+ deleteTask = (taskId) => {
+  let newTasks = [];
+
+  for (let i=0; i< this.tasks.length; i++) {
+    const task = this.tasks[i];
+    if (task.id !== taskId) {
+      newTasks.push(task);
+    }
+  }
+  this.tasks = newTasks
+}
+
+  // Task 9: Persisting Tasks to LocalStorage 
+
+  save() {
+  
+    const tasksJson = JSON.stringify(this.taskArr);
+    localStorage.setItem('tasks', tasksJson);
+
+    const currentId = String(this.currentId);
+    localStorage.setItem('currentId', currentId);
+  }
+
+
+  load() {
+
+    if (localStorage.getItem('tasks')) {
+      const tasksJson = localStorage.getItem('tasks'); 
+      this.taskArr = JSON.parse(tasksJson); 
+    }
+    if (localStorage.getItem('currentId')) {
+      const currentId = localStorage.getItem('currentId'); 
+      this.currentId = Number(currentId);
+    }
+  }
+
+}

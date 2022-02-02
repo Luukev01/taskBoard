@@ -1,17 +1,9 @@
 const taskManager = new TaskManager();
 
-taskManager.load(); 
-taskManager.render(); 
+taskManager.load();
+taskManager.render();
 
 const submitBtn = document.querySelector("#submit-edit");
-
-// console.log(myTask.task);
-// submitBtn.addEventListener("click", () => {
-//   myTask.addTask("yujin", "description", " assignedTo", "dueDate", "in review");
-//   console.log(myTask.task);
-// });
-
-// Task 4: Task Form Inputs Validation
 
 const newTaskForm = document.querySelector("#new-task-form");
 
@@ -107,23 +99,29 @@ if (month < 10) {
 const minDate = year + "-" + month + "-" + day;
 
 document.querySelector("#dueDate").setAttribute("min", minDate);
-console.log(minDate);
 
-/*clicking event for edit/delete */
-const taskList = document.querySelector("#task-list");
+/*clicking event for done/delete */
+const taskList = document.querySelector("#taskList");
+// const doneBtn = document.querySelector(".done-button");
 
-taskList.addEventListener("click", (event) => { 
+taskList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("done-button")) {
+    const parentTask = event.target.parentElement.parentElement.parentElement;
+    const taskId = Number(parentTask.getAttribute("data-task-id"));
+    const task = taskManager.getTaskById(taskId);
+    task.status = "4";
+    taskManager.render();
+    taskManager.save();
+  }
 
-  
   if (event.target.classList.contains("delete-button")) {
-    const parentTask =
-      event.target.parentElement.parentElement.parentElement.parentElement;
-      const taskId = Number(parentTask.dataset.taskId);
+    const parentTask = event.target.parentElement.parentElement.parentElement;
+    const taskId = Number(parentTask.dataset.taskId);
 
-      taskManager.deleteTask(taskId);
+    taskManager.deleteTask(taskId);
 
-      taskManager.save();
+    taskManager.save();
 
-      taskManager.render();
-    }
-  });
+    taskManager.render();
+  }
+});

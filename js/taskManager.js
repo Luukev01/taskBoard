@@ -1,6 +1,6 @@
 /* Part - 7 creating a task */
 
-let createTaskHtml = (name, description, assignedTo, dueDate, id) => {
+let createTaskHtml = (name, description, assignedTo, dueDate, id, statusId) => {
   templateHtml = `
   <div class="row" data-task-id=${id}>
     <div class="task-container" >
@@ -17,8 +17,7 @@ let createTaskHtml = (name, description, assignedTo, dueDate, id) => {
             </p>
           </div>
           <div class="card-footer">
-            <button class="card-button done-button" 
-            >Done</button>
+            ${statusId === "4" ? '' : '<button class="card-button done-button">Done</button>'}
             <button class="card-button delete-button">Delete</button>
           </div>
         </div>
@@ -82,7 +81,8 @@ class TaskManager {
         task.description,
         task.assignedTo,
         formattedDate,
-        task.id
+        task.id,
+        task.status
       );
 
       tasksHtmlList.push(taskHtml);

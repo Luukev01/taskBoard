@@ -1,9 +1,9 @@
 /* Part - 7 creating a task */
 
-let createTaskHtml = (name, description, assignedTo, dueDate) => {
+let createTaskHtml = (name, description, assignedTo, dueDate, id) => {
   templateHtml = `
-  <div class="row">
-    <div class="task-container" data-task-id="1">
+  <div class="row" data-task-id=${id}>
+    <div class="task-container" >
           <div class="card-header">
             <h5>${name}</h5>
           </div>
@@ -17,8 +17,8 @@ let createTaskHtml = (name, description, assignedTo, dueDate) => {
             </p>
           </div>
           <div class="card-footer">
-            <button class="card-button edit-button" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Edit</button>
+            <button class="card-button done-button" 
+            >Done</button>
             <button class="card-button delete-button">Delete</button>
           </div>
         </div>
@@ -53,10 +53,22 @@ class TaskManager {
     this.taskArr.push(task1);
     this.save();
   }
-  
+
+  getTaskById(taskId) {
+    let foundTask;
+
+    for (let i = 0; i < this.taskArr.length; i++) {
+      let task = this.taskArr[i];
+      if (this.taskArr[i].id === taskId) {
+        foundTask = this.taskArr[i];
+      }
+    }
+    return foundTask;
+  }
+
   renderList = (statusId, listId) => {
     let tasksHtmlList = [];
-    let filteredTasks = this.taskArr.filter (task => task.status == statusId);
+    let filteredTasks = this.taskArr.filter((task) => task.status == statusId);
     console.log(filteredTasks);
     for (let i = 0; i < filteredTasks.length; i++) {
       let task = filteredTasks[i];
@@ -64,11 +76,13 @@ class TaskManager {
       const formattedDate = `${date.getDate()}/${
         date.getMonth() + 1
       }/${date.getFullYear()}`;
+
       const taskHtml = createTaskHtml(
         task.name,
         task.description,
         task.assignedTo,
-        formattedDate
+        formattedDate,
+        task.id
       );
 
       tasksHtmlList.push(taskHtml);
@@ -77,7 +91,7 @@ class TaskManager {
 
     const tasksList = document.querySelector(listId);
     tasksList.innerHTML = tasksHtml;
-  }
+  };
 
   render = () => {
     //status: todo
@@ -90,42 +104,36 @@ class TaskManager {
     this.renderList("3", "#review-list");
 
     //status: review
-    this.renderList("4", "#done-list")
-
+    this.renderList("4", "#done-list");
   };
 
-/* creating the render method */
+  /* creating the render method */
 
-  // Task 9: Persisting Tasks to LocalStorage 
+  // Task 9: Persisting Tasks to LocalStorage
 
   save() {
-    console.log("save");
     const tasksJson = JSON.stringify(this.taskArr);
-    localStorage.setItem('tasks', tasksJson);
+    localStorage.setItem("tasks", tasksJson);
 
     const currentId = String(this.currentId);
-    localStorage.setItem('currentId', currentId);
+    localStorage.setItem("currentId", currentId);
   }
 
-
   load() {
-    console.log("load");
-
-    if (localStorage.getItem('tasks')) {
-      const tasksJson = localStorage.getItem('tasks'); 
-      this.taskArr = JSON.parse(tasksJson); 
+    if (localStorage.getItem("tasks")) {
+      const tasksJson = localStorage.getItem("tasks");
+      this.taskArr = JSON.parse(tasksJson);
     }
-    if (localStorage.getItem('currentId')) {
-      const currentId = localStorage.getItem('currentId'); 
+    if (localStorage.getItem("currentId")) {
+      const currentId = localStorage.getItem("currentId");
       this.currentId = Number(currentId);
     }
   }
-
 }
 
- /* task 10 */
+/* task 10 */
 
- deleteTask = (taskId) => {
+deleteTask = (taskId) => {
   let newTasks = [];
 
   for (let i = 0; i < this.taskArr.length; i++) {
@@ -135,4 +143,4 @@ class TaskManager {
     }
   }
   this.taskArr = newTasks;
-}
+};

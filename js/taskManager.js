@@ -55,9 +55,8 @@ class TaskManager {
     for (let i = 0; i < this.taskArr.length; i++) {
       let task = this.taskArr[i];
       const date = new Date(task.dueDate);
-      const formattedDate = `${date.getDate()}/${
-        date.getMonth() + 1
-      }/${date.getFullYear()}`;
+      const formattedDate = `${date.getDate()}/${date.getMonth() + 1
+        }/${date.getFullYear()}`;
       const taskHtml = createTaskHtml(
         task.name,
         task.description,
@@ -73,26 +72,42 @@ class TaskManager {
     tasksList.innerHTML = tasksHtml;
   };
 
-/* creating the render method */
+  /* creating the render method */
 
-/* task 10 */ 
+  /* task 10 */
 
- deleteTask = (taskId) => {
-  let newTasks = [];
+  deleteTask = (taskId) => {
+    let newTasks = [];
 
-  for (let i=0; i< this.tasks.length; i++) {
-    const task = this.tasks[i];
-    if (task.id !== taskId) {
-      newTasks.push(task);
+    for (let i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+      if (task.id !== taskId) {
+        newTasks.push(task);
+      }
     }
+    this.tasks = newTasks
   }
-  this.tasks = newTasks
-}
+
+  /* move to index after step 8 is done */
+
+  /* 
+  if (event.target.classList.contains("delete-button")) {
+      const parentTask =
+        event.target.parentElement.parentElement.parentElement.parentElement;
+        const taskId = Number(parentTask.dataset.taskId);
+  
+        taskManager.deleteTask(taskId);
+  
+        taskManager.save();
+  
+        taskManager.render();
+    }
+  });*/
 
   // Task 9: Persisting Tasks to LocalStorage 
 
   save() {
-  
+
     const tasksJson = JSON.stringify(this.taskArr);
     localStorage.setItem('tasks', tasksJson);
 
@@ -103,11 +118,11 @@ class TaskManager {
   load() {
 
     if (localStorage.getItem('tasks')) {
-      const tasksJson = localStorage.getItem('tasks'); 
-      this.taskArr = JSON.parse(tasksJson); 
+      const tasksJson = localStorage.getItem('tasks');
+      this.taskArr = JSON.parse(tasksJson);
     }
     if (localStorage.getItem('currentId')) {
-      const currentId = localStorage.getItem('currentId'); 
+      const currentId = localStorage.getItem('currentId');
       this.currentId = Number(currentId);
     }
   }

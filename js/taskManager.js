@@ -2,6 +2,7 @@
 
 let createTaskHtml = (name, description, assignedTo, dueDate) => {
   templateHtml = `
+  <div class="row">
     <div class="task-container" data-task-id="1">
           <div class="card-header">
             <h5>${name}</h5>
@@ -21,6 +22,8 @@ let createTaskHtml = (name, description, assignedTo, dueDate) => {
             <button class="card-button delete-button">Delete</button>
           </div>
         </div>
+      </div>
+    <br/>
   `;
 
   return templateHtml;

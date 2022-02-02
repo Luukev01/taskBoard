@@ -69,6 +69,7 @@ newTaskForm.addEventListener("submit", (event) => {
 
   if (validationFail > 0) {
     return;
+
   } else {
     taskManager.addTask(
       newTaskName.value,
@@ -77,8 +78,14 @@ newTaskForm.addEventListener("submit", (event) => {
       dueDate.value,
       status.value
     );
-    taskManager.load();
     taskManager.render();
+    document.querySelector("#modal-close").click();
+    document.querySelector("#new-task-form").reset();
+    newTaskName.classList.remove("is-valid");
+    newDescription.classList.remove("is-valid");
+    assignedTo.classList.remove("is-valid");
+    dueDate.classList.remove("is-valid");
+    status.classList.remove("is-valid");
   }
 });
 
@@ -110,8 +117,8 @@ taskList.addEventListener("click", (event) => {
     const taskId = Number(parentTask.getAttribute("data-task-id"));
     const task = taskManager.getTaskById(taskId);
     task.status = "4";
-    taskManager.render();
     taskManager.save();
+    taskManager.render();
   }
 
   if (event.target.classList.contains("delete-button")) {

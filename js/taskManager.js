@@ -129,18 +129,18 @@ class TaskManager {
       this.currentId = Number(currentId);
     }
   }
-}
 
-/* task 10 */
+  /* task 10 */
 
-deleteTask = (taskId) => {
-  let newTasks = [];
+  deleteTask = (taskId) => {
+    let newTasks = [];
 
-  for (let i = 0; i < this.taskArr.length; i++) {
-    const task = this.taskArr[i];
-    if (task.id !== taskId) {
-      newTasks.push(task);
+    for (let i = 0; i < this.taskArr.length; i++) {
+      const task = this.taskArr[i];
+      if (task.id !== taskId) {
+        newTasks.push(task);
+      }
     }
-  }
-  this.taskArr = newTasks;
-};
+    this.taskArr = newTasks;
+  };
+}

@@ -2,7 +2,6 @@
 
 let createTaskHtml = (name, description, assignedTo, dueDate) => {
   templateHtml = `
-  <div class="row">
     <div class="task-container" data-task-id="1">
           <div class="card-header">
             <h5>${name}</h5>
@@ -17,13 +16,11 @@ let createTaskHtml = (name, description, assignedTo, dueDate) => {
             </p>
           </div>
           <div class="card-footer">
-            <button type="button" class="card-button edit-button" data-bs-toggle="modal"
+            <button class="card-button edit-button" data-bs-toggle="modal"
             data-bs-target="#exampleModal">Edit</button>
-            <button type="button" class="card-button delete-button">Delete</button>
+            <button class="card-button delete-button">Delete</button>
           </div>
         </div>
-      </div>
-    <br/>
   `;
 
   return templateHtml;
@@ -51,15 +48,19 @@ class TaskManager {
       status: status,
     };
     this.taskArr.push(task1);
+    this.save();
   }
-  render = () => {
+  
+  renderList = (statusId, listId) => {
     let tasksHtmlList = [];
-
-    for (let i = 0; i < this.taskArr.length; i++) {
-      let task = this.taskArr[i];
+    let filteredTasks = this.taskArr.filter (task => task.status == statusId);
+    console.log(filteredTasks);
+    for (let i = 0; i < filteredTasks.length; i++) {
+      let task = filteredTasks[i];
       const date = new Date(task.dueDate);
-      const formattedDate = `${date.getDate()}/${date.getMonth() + 1
-        }/${date.getFullYear()}`;
+      const formattedDate = `${date.getDate()}/${
+        date.getMonth() + 1
+      }/${date.getFullYear()}`;
       const taskHtml = createTaskHtml(
         task.name,
         task.description,
@@ -71,17 +72,31 @@ class TaskManager {
     }
     const tasksHtml = tasksHtmlList.join("\n");
 
-    const tasksList = document.querySelector("#task-list");
+    const tasksList = document.querySelector(listId);
     tasksList.innerHTML = tasksHtml;
+  }
+
+  render = () => {
+    //status: todo
+    this.renderList("1", "#todo-list");
+
+    //status: in progress
+    this.renderList("2", "#progress-list");
+
+    //status: review
+    this.renderList("3", "#review-list");
+
+    //status: review
+    this.renderList("4", "#done-list")
+
   };
 
-  /* creating the render method */
-
+/* creating the render method */
 
   // Task 9: Persisting Tasks to LocalStorage 
 
   save() {
-
+    console.log("save");
     const tasksJson = JSON.stringify(this.taskArr);
     localStorage.setItem('tasks', tasksJson);
 
@@ -89,14 +104,16 @@ class TaskManager {
     localStorage.setItem('currentId', currentId);
   }
 
+
   load() {
+    console.log("load");
 
     if (localStorage.getItem('tasks')) {
-      const tasksJson = localStorage.getItem('tasks');
-      this.taskArr = JSON.parse(tasksJson);
+      const tasksJson = localStorage.getItem('tasks'); 
+      this.taskArr = JSON.parse(tasksJson); 
     }
     if (localStorage.getItem('currentId')) {
-      const currentId = localStorage.getItem('currentId');
+      const currentId = localStorage.getItem('currentId'); 
       this.currentId = Number(currentId);
     }
   }

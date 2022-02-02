@@ -122,10 +122,19 @@ h1 {
 }
 
 .delete-button {
+  background-color: #edadc7;
+  color: #ffffff;
+  border: #ffffff;
+  border-width: 2px;
+}
+
+
+.done-button {
   background-color: white;
   color: #edadc7;
   border: #edadc7;
   border-width: 2px;
+}
 }
 
 /* Styling for modal */

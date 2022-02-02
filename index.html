@@ -140,91 +140,16 @@
 
 <div class="task-board-container">
   <div class="row">
-    <div class="col-2" id="to-do">
-      <!--  title column-->
       <!-- Start of To Do column-->
+    <div class="col-2" id="to-do">
       <div class="row">
         <div class="title-column">
           <p>To do</p>
         </div>
       </div>
-      <!-- Start of task 1 container -->
-      <div class="row">
-        <div class="task-container" data-task-id="1">
-          <div class="card-header">
-            <h5>Laundry</h5>
-          </div>
-          <div class="card-body">
-            <p class="description">Description</p>
-            <p class="assigned-text">
-              <small class>Assigned to: Name</small>
-            </p>
-            <p class="assigned-text">
-              <small class> Due: Date</small>
-            </p>
-          </div>
-      
-          <div class="card-footer">
-            <button class="card-button edit-button" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Edit</button>
-            <button class="card-button delete-button">Delete</button>
-          </div>
-
-        </div>
-        <div id="task-list"></div>
-      </div>
-      <br />
-      <!-- End of task 1 container -->
-      <!-- Start of task 2 container -->
-      <div class="row">
-        <div class="task-container" data-task-id="2">
-          <div class="card-header">
-            <h5>Laundry</h5>
-          </div>
-          <div class="card-body">
-            <p class="description">Description</p>
-            <p class="assigned-text">
-              <small class>Assigned to: Name</small>
-            </p>
-            <p class="assigned-text">
-              <small class> Due: Date</small>
-            </p>
-          </div>
-          <div class="card-footer">
-            <button class="card-button edit-button" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Edit</button>
-            <button class="card-button delete-button">Delete</button>
-          </div>
-        </div>
-      </div>
-      <br />
-      <!-- End of task 2 container -->
-      <!-- Start of task 3 container -->
-      <div class="row">
-        <div class="task-container" data-task-id="3">
-          <div class="card-header">
-            <h5>Laundry</h5>
-          </div>
-          <div class="card-body">
-            <p class="description">Description</p>
-            <p class="assigned-text">
-              <small class>Assigned to: Name</small>
-            </p>
-            <p class="assigned-text">
-              <small class> Due: Date</small>
-            </p>
-          </div>
-          <div class="card-footer">
-            <button class="card-button edit-button" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Edit</button>
-            <button class="card-button delete-button">Delete</button>
-          </div>
-        </div>
-      </div>
-      <!-- End of task 3 container -->
+      <div id="todo-list"></div>
     </div>
-    <!-- End of task container -->
-    <!-- End of To Do column-->
+    
     <!-- Start of in Progress column-->
     <div class="col-2 offset-1" id="progress">
       <div class="row">
@@ -232,56 +157,9 @@
           <p>In Progress</p>
         </div>
       </div>
-      <!-- Start of task 1 container -->
-      <div class="row">
-        <div class="task-container" data-task-id="3">
-          <div class="card-header">
-            <h5>Laundry</h5>
-          </div>
-          <div class="card-body">
-            <p class="description">Description</p>
-            <p class="assigned-text">
-              <small class>Assigned to: Name</small>
-            </p>
-            <p class="assigned-text">
-              <small class> Due: Date</small>
-            </p>
-          </div>
-          <div class="card-footer">
-            <button class="card-button edit-button" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Edit</button>
-            <button class="card-button delete-button">Delete</button>
-          </div>
-        </div>
-      </div>
-      <br />
-      <!-- End of task 1 container -->
-      <!-- Start of task 2 container -->
-      <div class="row">
-        <div class="task-container" data-task-id="3">
-          <div class="card-header">
-            <h5>Laundry</h5>
-          </div>
-          <div class="card-body">
-            <p class="description">Description</p>
-            <p class="assigned-text">
-              <small class>Assigned to: Name</small>
-            </p>
-            <p class="assigned-text">
-              <small class> Due: Date</small>
-            </p>
-          </div>
-          <div class="card-footer">
-            <button class="card-button edit-button" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Edit</button>
-            <button class="card-button delete-button">Delete</button>
-          </div>
-        </div>
-      </div>
-      <br />
-      <!-- End of task 2 container -->
+      <div id="progress-list"></div>
     </div>
-    <!-- Start of in In Progress column-->
+ 
     <!-- Start of review column-->
     <div class="col-2 offset-1" id="review">
       <div class="row">
@@ -289,32 +167,22 @@
           <p>Review</p>
         </div>
       </div>
+      <div id="review-list"></div>
     </div>
-      <!-- Start of task 1 container -->
 
-      <!-- End of task 1 container -->
-      <!-- Start of task 2 container -->
-
-      <!-- End of task 2 container -->
-      <!-- End of review column-->
-      <!-- Start of Done column-->
-      <div class="col-2 offset-1" id="done">
-        <div class="row">
-          <div class="title-column">
-            <p>Done</p>
-          </div>
+    <!-- Start of Done column-->
+    
+    <div class="col-2 offset-1" id="done">
+      <div class="row">
+        <div class="title-column">
+          <p>Done</p>
+         </div>
         </div>
-    </div>
-      <!-- Start of task 1 container -->
-
-      <!-- End of task 1 container -->
-      <!-- Start of task 2 container -->
-
-      <!-- End of task 2 container -->
-      <!-- End of Done column-->
+      <div id="done-list"></div>
     </div>
   </div>
 </div>
+
 
 <!-- Start of about us -->
 

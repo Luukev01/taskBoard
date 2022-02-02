@@ -75,6 +75,20 @@ class TaskManager {
 
 /* creating the render method */
 
+/* task 10 */ 
+
+ deleteTask = (taskId) => {
+  let newTasks = [];
+
+  for (let i=0; i< this.tasks.length; i++) {
+    const task = this.tasks[i];
+    if (task.id !== taskId) {
+      newTasks.push(task);
+    }
+  }
+  this.tasks = newTasks
+}
+
   // Task 9: Persisting Tasks to LocalStorage 
 
   save() {
@@ -85,7 +99,6 @@ class TaskManager {
     const currentId = String(this.currentId);
     localStorage.setItem('currentId', currentId);
   }
-
 
   load() {
 

@@ -100,7 +100,6 @@ class TaskManager {
     localStorage.setItem('currentId', currentId);
   }
 
-
   load() {
 
     if (localStorage.getItem('tasks')) {

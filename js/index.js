@@ -108,3 +108,22 @@ const minDate = year + "-" + month + "-" + day;
 
 document.querySelector("#dueDate").setAttribute("min", minDate);
 console.log(minDate);
+
+/*clicking event for edit/delete */
+const taskList = document.querySelector("#task-list");
+
+taskList.addEventListener("click", (event) => { 
+
+  
+  if (event.target.classList.contains("delete-button")) {
+    const parentTask =
+      event.target.parentElement.parentElement.parentElement.parentElement;
+      const taskId = Number(parentTask.dataset.taskId);
+
+      taskManager.deleteTask(taskId);
+
+      taskManager.save();
+
+      taskManager.render();
+    }
+  });

@@ -1,6 +1,11 @@
 /* Part - 7 creating a task */
 
 let createTaskHtml = (name, description, assignedTo, dueDate, id, statusId) => {
+  const buttonsDone = '<button class="card-button delete-button">Delete</button>';
+  const buttonsNotDone = `
+  <button class="card-button edit-button">Edit</button>
+  <button class="card-button done-button">Done</button>
+  `;
   templateHtml = `
   <div class="row" data-task-id=${id}>
     <div class="task-container" >
@@ -17,8 +22,7 @@ let createTaskHtml = (name, description, assignedTo, dueDate, id, statusId) => {
             </p>
           </div>
           <div class="card-footer">
-            ${statusId === "4" ? '' : '<button class="card-button done-button">Done</button>'}
-            <button class="card-button delete-button">Delete</button>
+          ${statusId === "4" ?  buttonsDone : buttonsNotDone }
           </div>
         </div>
       </div>
@@ -50,7 +54,17 @@ class TaskManager {
       status: status,
     };
     this.taskArr.push(task1);
-    this.save();
+  }
+  updateTask(name, description, assignedTo, dueDate, status, id) {
+    console.log("updateTask", id);
+    let task = this.getTaskById(id);
+    console.log(task);
+    task.name = name;
+    task.description = description;
+    task.assignedTo = assignedTo;
+    task.dueDate = dueDate;
+    task.status = status;
+ 
   }
 
   getTaskById(taskId) {
@@ -58,7 +72,7 @@ class TaskManager {
 
     for (let i = 0; i < this.taskArr.length; i++) {
       let task = this.taskArr[i];
-      if (this.taskArr[i].id === taskId) {
+      if (this.taskArr[i].id == taskId) {
         foundTask = this.taskArr[i];
       }
     }
@@ -143,4 +157,21 @@ class TaskManager {
     }
     this.taskArr = newTasks;
   };
+
+  editTask = (taskId) => {
+   let task = this.getTaskById(taskId);
+    const taskTitle = document.querySelector("#taskTitle");
+    const description = document.querySelector("#textDes");
+    const assignedTo = document.querySelector("#assignTo");
+    const dueDate = document.querySelector("#dueDate");
+    const status = document.querySelector("#taskStatus");
+    const hiddenId = document.querySelector("#hiddenId");
+    taskTitle.value = task.name;
+    description.value = task.description;
+    assignedTo.value = task.assignedTo;
+    dueDate.value = task.dueDate;
+    status.value = task.status;
+    hiddenId.value = task.id;
+  };
+
 }

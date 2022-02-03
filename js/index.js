@@ -5,6 +5,12 @@ taskManager.render();
 
 const submitBtn = document.querySelector("#submit-edit");
 
+const addButton = document.querySelector("#add-btn");
+
+addButton.addEventListener("click", (event) => {
+  document.querySelector("#hiddenId").value = "";
+});
+
 const newTaskForm = document.querySelector("#new-task-form");
 
 newTaskForm.addEventListener("submit", (event) => {
@@ -13,6 +19,7 @@ newTaskForm.addEventListener("submit", (event) => {
   const assignedTo = document.querySelector("#assignTo");
   const dueDate = document.querySelector("#dueDate");
   const status = document.querySelector("#taskStatus");
+  const hiddenId = document.querySelector("#hiddenId");
   let validationFail = 0;
 
   event.preventDefault();
@@ -71,13 +78,26 @@ newTaskForm.addEventListener("submit", (event) => {
     return;
 
   } else {
-    taskManager.addTask(
-      newTaskName.value,
-      newDescription.value,
-      assignedTo.value,
-      dueDate.value,
-      status.value
-    );
+    if (hiddenId.value === "") {
+      taskManager.addTask(
+        newTaskName.value,
+        newDescription.value,
+        assignedTo.value,
+        dueDate.value,
+        status.value
+      );
+    } else {
+      taskManager.updateTask(
+        newTaskName.value,
+        newDescription.value,
+        assignedTo.value,
+        dueDate.value,
+        status.value,
+        hiddenId.value
+
+      );
+    }
+    taskManager.save();
     taskManager.render();
     document.querySelector("#modal-close").click();
     document.querySelector("#new-task-form").reset();
@@ -85,7 +105,7 @@ newTaskForm.addEventListener("submit", (event) => {
     newDescription.classList.remove("is-valid");
     assignedTo.classList.remove("is-valid");
     dueDate.classList.remove("is-valid");
-    status.classList.remove("is-valid");
+    status.classList.remove("is-valid"); 
   }
 });
 
@@ -127,5 +147,13 @@ taskList.addEventListener("click", (event) => {
     taskManager.deleteTask(taskId);
     taskManager.save();
     taskManager.render();
+  }
+
+  if (event.target.classList.contains("edit-button")) {
+    const parentTask = event.target.parentElement.parentElement.parentElement;
+    const taskId = Number(parentTask.dataset.taskId);
+    console.log(taskId);
+    taskManager.editTask(taskId);
+    new bootstrap.Modal(document.querySelector("#exampleModal")).show();
   }
 });

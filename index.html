@@ -58,7 +58,7 @@
 <!-- Start of Button-->
 <section>
   <div class="d-flex justify-content-center align-items-center">
-    <button type="button" class="btn banner btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Task
+    <button type="button" class="btn banner btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal" id="add-btn">Add Task
     </button>
   </div>
 </section>
@@ -75,8 +75,8 @@
           <span aria-hidden="true">&times;</span>
          </button>
        </div>
-     
-      <form id= "new-task-form" class="needs-validation" novalidate>
+     <input type="hidden" id="hiddenId">
+      <form id="new-task-form" class="needs-validation" novalidate>
         <div class="modal-body">
           <div class="row">
             <div class="col">
@@ -190,6 +190,7 @@
   <h2 id="titleAboutUs">About Us</h2>
   <p>The page is created by Yujin, Jane and Kevin</p>
 </section>
+
 
 
     <!-- End of about is -->

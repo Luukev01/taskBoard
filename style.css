@@ -1,7 +1,14 @@
+html {
+  font-size: 1rem;
+}
 /* styling for columns */
 
 .row {
   justify-content: center;
+}
+
+.title-column {
+  padding-top: 0.5rem;
 }
 
 .col-2 {
@@ -15,9 +22,6 @@
   border-radius: 8px;
 }
 
-html {
-  font-size: 1rem;
-}
 /* styling for columns */
 /* Start of navigation bar css */
 
@@ -38,6 +42,10 @@ h1 {
   border-bottom: none;
   border-bottom: 2px dashed;
   border-color: #edadc7;
+}
+
+button.navbar-toggler {
+  background-color: #ade8f4;
 }
 
 /* End of navigation bar css */
@@ -68,17 +76,20 @@ h1 {
   text-align: center;
   width: 100%;
   margin: auto;
-  padding-top: 2rem;
+  padding-top: 1rem;
   text-decoration: underline;
   color: #edadc7;
 }
 
 .sectionStyling p {
   text-align: center;
+  color:#edadc7;
   width: 100%;
   margin: auto;
   padding-top: 2rem;
+  padding-bottom: 2rem;
 }
+
 /* styling for about us*/
 
 /* styling for task cards*/
@@ -87,27 +98,28 @@ h1 {
   text-align: center;
   width: 100%;
   margin: auto;
+  padding-bottom: 2rem;
 }
 
 .task-container {
   justify-self: center;
-  background-color: rgb(173, 232, 244);
-  border-right: 1px solid rgb(173, 232, 244);
-  margin-top: 1em;
+  background-color: #ade8f4;
+  border-right: 1px solid #ade8f4;
+  margin-top: 0.8rem;
 }
-
 
 .card-body {
   line-height: 10%;
 }
+
 .card-header {
-  background-color: rgb(173, 232, 244) !important;
-  border: none !important;
+  background-color: #ade8f4 !important;
   text-decoration: underline;
+  border: none !important;
 }
 
 .card-footer {
-  background-color: rgb(173, 232, 244) !important;
+  background-color: #ade8f4 !important;
   border: none !important;
 }
 
@@ -128,7 +140,6 @@ h1 {
   border-width: 2px;
 }
 
-
 .done-button {
   background-color:#edadc7;
   color: #ffffff;
@@ -137,6 +148,13 @@ h1 {
 }
 
 /* Styling for modal */
+.modal {
+  background-color: #f8c6da;  
+}
+
+.modal-body-color {
+  background-color: #ade8f4;
+}
 
 #textDes {
   border: 1px solid lightgray;
@@ -160,9 +178,15 @@ h1 {
   border: none;
 }
 
+#modal-close {
+  background-color: #ade8f4;
+  border: none;
+}
+
 .btn {
   transition-duration: 0.4s;
 }
+
 .btn:hover {
   background-color: #f8c6da !important;
   color: white;

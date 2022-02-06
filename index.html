@@ -31,8 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class=" navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active text-pink navbar-cssLink" aria-current="page" href="#titleTasks"
-                >Tasks</a>
+              <a class="nav-link active text-pink navbar-cssLink" aria-current="page" href="#titleTasks">Tasks</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-pink navbar-cssLink" href="#titleAboutUs">About Us</a>
@@ -66,7 +65,7 @@
 
 <!-- Modal -->
 <section>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">
@@ -77,7 +76,7 @@
        </div>
      <input type="hidden" id="hiddenId">
       <form id="new-task-form" class="needs-validation" novalidate>
-        <div class="modal-body">
+        <div class="modal-body modal-body-color">
           <div class="row">
             <div class="col">
               <label for="taskTitle">Task Title: </label>
@@ -127,7 +126,7 @@
        </div>
     
         <div class="modal-footer">
-          <button type="button" id="modal-close" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="modal-close" class="btn btn-secondary cancel-button" data-bs-dismiss="modal">Cancel</button>
           <button type="submit" class="btn btn-primary" id="submit-edit">Submit</button>
         </div>
        </form>
@@ -188,8 +187,9 @@
 
 <section class="sectionStyling" id="aboutUsPosition">
   <h2 id="titleAboutUs">About Us</h2>
-  <p>The page is created by Yujin, Jane and Kevin</p>
+  <p>The page is created by Yujin, Jane and Kevin &copy Generation Australia 2021</p>
 </section>
+
 
 
 

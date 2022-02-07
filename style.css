@@ -81,7 +81,7 @@ button.navbar-toggler {
 
 .sectionStyling p {
   text-align: center;
-  color:#edadc7;
+  color: #edadc7;
   width: 100%;
   margin: auto;
   padding-top: 2rem;
@@ -139,7 +139,7 @@ button.navbar-toggler {
 }
 
 .done-button {
-  background-color:#edadc7;
+  background-color: #edadc7;
   color: #ffffff;
   border: #edadc7;
   border-width: 2px;
@@ -147,7 +147,7 @@ button.navbar-toggler {
 
 /* Styling for modal */
 .modal {
-  background-color: #f8c6da;  
+  background-color: #f8c6da;
 }
 
 .modal-body-color {

@@ -13,7 +13,8 @@ let createTaskHtml = (name, description, assignedTo, dueDate, id, statusId) => {
             <h5>${name}</h5>
           </div>
           <div class="card-body">
-            <p class="description">${description}</p>
+            <p class="description">
+            <small class>${description}</small></p>
             <p class="assigned-text">
               <small class>Assigned to: ${assignedTo}</small>
             </p>
